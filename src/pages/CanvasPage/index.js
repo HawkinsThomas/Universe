@@ -1,3 +1,4 @@
-import CanvasPage from './component'
+import CanvasPage from './component';
+
 
 export default CanvasPage;
