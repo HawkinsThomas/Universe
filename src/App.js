@@ -1,14 +1,23 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import { Provider } from 'react-redux';
+import store from './store';
+import CanvasPage from './pages/CanvasPage';
 
-import CanvasPage from './pages/CanvasPage'
-import EditorPage from './pages/EditorPage'
 
-export default function App() {
-  return (
-    <Switch>
-      <Route exact path="/" component={CanvasPage} />
-      <Route exact path="/editor" component={EditorPage} />
-    </Switch>
-  )
-}
+const history = createBrowserHistory();
+
+console.log(Provider);
+
+const App = () => (
+  <Provider store={store}>
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/" component={CanvasPage} />
+      </Switch>
+    </Router>
+  </Provider>
+);
+
+export default App;
