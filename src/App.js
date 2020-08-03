@@ -2,21 +2,24 @@ import React from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 import store from './store';
+import theme from './theme';
 import CanvasPage from './pages/CanvasPage';
 
 
 const history = createBrowserHistory();
 
-console.log(Provider);
 
 const App = () => (
   <Provider store={store}>
-    <Router history={history}>
-      <Switch>
-        <Route exact path="/" component={CanvasPage} />
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" component={CanvasPage} />
+        </Switch>
+      </Router>
+    </ThemeProvider>
   </Provider>
 );
 

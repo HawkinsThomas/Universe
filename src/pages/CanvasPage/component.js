@@ -1,9 +1,11 @@
 import React from 'react';
+import Canvas from './Canvas';
+
 
 const CanvasPage = () => {
   return (
     <div>
-      hello
+      <Canvas />
     </div>
   );
 };
