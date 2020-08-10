@@ -11,7 +11,7 @@ export const createRandomCircle = (maxHeight, maxWidth, color = null) => (
   }
 );
 
-export const createRandomCircles = (maxHeight, maxWidth, numberOfCircles) => {
+export const createRandomFrame = (maxHeight, maxWidth, numberOfCircles) => {
   const circles = [];
   for (let i = 0; i < numberOfCircles; i++) {
     circles.push(createRandomCircle(maxHeight, maxWidth));
@@ -22,7 +22,7 @@ export const createRandomCircles = (maxHeight, maxWidth, numberOfCircles) => {
 export const createRandomFrames = (maxHeight, maxWidth, numberOfCircles, numberOfFrames) => {
   const frames = [];
   for (let i = 0; i < numberOfFrames; i++) {
-    frames.push(createRandomCircles(maxHeight, maxWidth, numberOfCircles));
+    frames.push(createRandomFrame(maxHeight, maxWidth, numberOfCircles));
   };
   return frames;
 };
