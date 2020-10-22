@@ -7,9 +7,9 @@ export const engine = (startingFrame) => ({
   objects: [],
   objectsFromStartingFrame() {
     startingFrame.forEach((circle, index) => {
-      const {radius, colour, x, y} = circle;
+      const {mass, colour, x, y, vx, vy} = circle;
 
-      this.objects.push(createObject(index, x, y, 10000, radius + 1, 0, 0, colour));
+      this.objects.push(createObject(index, x, y, mass, vx, vy, colour));
     });
   },
   generateFrames(numberOfFrames) {

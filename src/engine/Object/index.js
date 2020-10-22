@@ -1,9 +1,9 @@
-export const createObject = (id, x, y, mass, radius, vx, vy, colour) => ({
+export const createObject = (id, x, y, mass, vx, vy, colour) => ({
   id,
   x,
   y,
   mass,
-  radius,
+  radius: 0,
   vx,
   vy,
   colour,
@@ -11,6 +11,11 @@ export const createObject = (id, x, y, mass, radius, vx, vy, colour) => ({
   ay: 0,
   fx: 0,
   fy: 0,
+  collisionDetected: [],
+  distanceFromOtherObjects: {},
+  setRadius() {
+    this.radius = (Math.cbrt(this.mass))/15;
+  },
   resetForces() {
     this.fx = 0;
     this.fy = 0;
@@ -20,8 +25,8 @@ export const createObject = (id, x, y, mass, radius, vx, vy, colour) => ({
     this.fy += force.fy;
   },
   updateAcceleration() {
-    this.ax += this.fx / this.mass;
-    this.ay += this.fy / this.mass;
+    this.ax = this.fx / this.mass;
+    this.ay = this.fy / this.mass;
   },
   updateVelocity() {
     this.vx += this.ax;
